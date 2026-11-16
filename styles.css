@@ -422,6 +422,7 @@ img {
   font-style: italic;
 }
 
+
 /* =====================================================
    PRIVACIDAD Y PESTAÑAS
    ===================================================== */
@@ -647,9 +648,9 @@ img {
   text-decoration: underline;
 }
 
-/* =====================================================
-   RESPONSIVE - TABLETAS Y CELULARES
-   ===================================================== */
+/* =========================================
+   RESPONSIVE: TABLET Y CELULARES
+========================================= */
 
 @media (max-width: 860px) {
 
@@ -660,11 +661,12 @@ img {
   .nav-content {
     position: relative;
     width: 92%;
-    transform: none;
-    gap: 8px;
+    min-height: 60px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 60px;
+    gap: 10px;
+    transform: none;
     overflow: visible;
   }
 
@@ -675,62 +677,57 @@ img {
     left: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     gap: 8px;
-    font-size: clamp(1rem, 4.5vw, 1.4rem);
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    min-width: 0;
     flex: 1 1 auto;
+    min-width: 0;
     overflow: visible;
+    white-space: nowrap;
+    font-size: clamp(1rem, 4.5vw, 1.4rem);
   }
 
   .brand-logo {
     display: block;
-    width: 48px;
-    min-width: 48px;
-    max-width: 48px;
+    width: auto;
     height: 48px;
-    min-height: 48px;
-    max-height: 48px;
-    flex: 0 0 48px;
+    max-width: 65px;
+    min-width: 0;
+    flex: 0 0 auto;
     object-fit: contain;
     object-position: center;
-    border-radius: 0;
   }
 
   .brand-text {
     display: block;
-    flex: 0 1 auto;
     min-width: 0;
     white-space: nowrap;
-    line-height: 1.2;
+    flex-shrink: 1;
   }
 
   /* BOTÓN HAMBURGUESA */
 
   .menu-toggle {
     display: flex;
-    flex: 0 0 42px;
-    width: 42px;
-    min-width: 42px;
-    max-width: 42px;
-    height: 40px;
-    min-height: 40px;
-    max-height: 40px;
-    padding: 8px;
-    box-sizing: border-box;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
+    position: relative;
+    z-index: 1002;
+    flex: 0 0 44px;
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    height: 42px;
+    min-height: 42px;
+    max-height: 42px;
+    padding: 9px;
+    margin: 0;
     appearance: none;
     -webkit-appearance: none;
-    background: rgba(13, 25, 48, 0.85);
     border: 1px solid var(--glass-border);
-    border-radius: 8px;
+    border-radius: 10px;
+    background: var(--glass-bg);
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
     cursor: pointer;
-    writing-mode: horizontal-tb;
-    transform: none;
+    overflow: visible;
   }
 
   .menu-toggle span {
@@ -738,10 +735,9 @@ img {
     width: 100%;
     height: 2px;
     min-height: 2px;
-    max-height: 2px;
     flex: 0 0 2px;
     background: var(--text-main);
-    border-radius: 2px;
+    border-radius: 5px;
   }
 
   /* MENÚ DESPLEGABLE */
@@ -753,28 +749,27 @@ img {
     left: 0;
     right: 0;
     width: 100%;
-    max-width: 100%;
-    height: auto;
     max-height: calc(100vh - 85px);
     max-height: calc(100dvh - 85px);
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
+    overscroll-behavior: contain;
     touch-action: pan-y;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) #081225;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 4px;
-    margin: 0;
     padding: 12px;
-    white-space: normal;
-    flex-shrink: 1;
+    margin: 0;
     background: #081225;
     border: 1px solid var(--glass-border);
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
     z-index: 1001;
+    white-space: normal;
   }
 
   .nav-links.open {
@@ -783,130 +778,29 @@ img {
 
   .nav-links a {
     display: block;
+    width: 100%;
     flex: 0 0 auto;
-    width: 100%;
     padding: 11px 10px;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    line-height: 1.4;
-  }
-
-  .nav-links .btn-nav {
-    text-align: center;
-    margin-top: 5px;
-  }
-
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-  }
-
-  .hero-text {
-    padding: 25px;
-    min-width: 0;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem;
-    overflow-wrap: break-word;
-  }
-
-  .hero-logo-box {
-    padding: 25px 15px;
-    min-width: 0;
-  }
-
-  .hero-main-logo {
-    max-width: 180px;
-  }
-
-  .cards-grid,
-  .services-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .project-card,
-  .service-card {
-    padding: 22px;
-    min-width: 0;
-  }
-
-  #filosofia-corporativa .cards-grid,
-  #contacto .contact-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .story-container,
-  .tab-content {
-    padding: 22px;
-    min-width: 0;
-  }
-
-  .story-content p {
     text-align: left;
+    white-space: normal;
     overflow-wrap: break-word;
   }
 
-  .tabs-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .tab-btn {
-    width: 100%;
-    overflow-wrap: anywhere;
-  }
-
-  .contact-box {
-    padding: 22px;
-    min-width: 0;
-  }
-
-  .contact-details {
-    gap: 12px;
-  }
-
-  .contact-item {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-links {
-    justify-content: center;
-  }
-
-  .glass-card,
-  .project-card,
-  .service-card,
-  .tab-content,
-  .story-container {
-    min-width: 0;
-    overflow-wrap: break-word;
-  }
+  /* AJUSTES DE SECCIONES */
 
   html {
     scroll-padding-top: 78px;
   }
 
-  #inicio,
-  #proyectos,
-  #servicios,
-  #filosofia-corporativa,
-  #historia,
-  #privacidad,
-  #contacto {
+  section {
     scroll-margin-top: 0;
   }
+
 }
 
-/* =====================================================
-   RESPONSIVE - CELULARES PEQUEÑOS
-   ===================================================== */
+/* =========================================
+   RESPONSIVE: CELULARES PEQUEÑOS
+========================================= */
 
 @media (max-width: 480px) {
 
@@ -916,110 +810,34 @@ img {
 
   .nav-content {
     width: 92%;
+    gap: 8px;
   }
 
   .brand {
-    font-size: clamp(0.95rem, 4.5vw, 1.2rem);
     gap: 7px;
-    letter-spacing: 0.5px;
-    flex: 1 1 auto;
-    min-width: 0;
+    font-size: clamp(0.95rem, 4.5vw, 1.2rem);
   }
 
   .brand-logo {
-    width: 44px;
-    min-width: 44px;
-    max-width: 44px;
     height: 44px;
-    min-height: 44px;
-    max-height: 44px;
-    flex: 0 0 44px;
-    object-fit: contain;
+    max-width: 60px;
   }
 
   .menu-toggle {
-    flex: 0 0 42px;
-    width: 42px;
-    min-width: 42px;
-    max-width: 42px;
-    height: 40px;
-    min-height: 40px;
-    max-height: 40px;
+    flex-basis: 44px;
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    height: 42px;
+    min-height: 42px;
+    max-height: 42px;
   }
 
-  .hero {
-    padding-top: 30px;
-  }
-
-  .hero-text {
-    padding: 19px;
-  }
-
-  .hero-text h1 {
-    font-size: 1.55rem;
-  }
-
-  .hero-text p {
-    font-size: 0.95rem;
-  }
-
-  .section {
-    padding: 40px 0;
-  }
-
-  .section-title {
-    font-size: 1.55rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.92rem;
-    padding: 0 5px;
-  }
-
-  .project-card,
-  .service-card,
-  .story-container,
-  .contact-box,
-  .tab-content {
-    padding: 18px;
-  }
-
-  .story-closing {
-    padding: 16px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .btn {
-    max-width: 100%;
-    text-align: center;
-  }
 }
 
-/* =====================================================
-   DESPLAZAMIENTO DE SECCIONES
-   ===================================================== */
-
-#inicio,
-#proyectos,
-#servicios,
-#filosofia-corporativa,
-#historia,
-#privacidad,
-#contacto {
-  scroll-margin-top: 0;
-}
-
-/* =====================================================
-   MENÚ EN CELULARES EN POSICIÓN HORIZONTAL
-   ===================================================== */
+/* =========================================
+   RESPONSIVE: CELULAR HORIZONTAL
+========================================= */
 
 @media (max-width: 860px) and (max-height: 500px) {
 
@@ -1028,20 +846,19 @@ img {
   }
 
   .nav-content {
-    min-height: 50px;
+    min-height: 48px;
   }
 
   .brand-logo {
-    width: 40px;
-    min-width: 40px;
-    max-width: 40px;
-    height: 40px;
-    min-height: 40px;
-    max-height: 40px;
-    flex-basis: 40px;
+    height: 38px;
+    max-width: 55px;
   }
 
   .menu-toggle {
+    flex-basis: 42px;
+    width: 42px;
+    min-width: 42px;
+    max-width: 42px;
     height: 38px;
     min-height: 38px;
     max-height: 38px;
@@ -1049,8 +866,8 @@ img {
 
   .nav-links {
     top: calc(100% + 5px);
-    max-height: calc(100vh - 65px);
-    max-height: calc(100dvh - 65px);
+    max-height: calc(100vh - 60px);
+    max-height: calc(100dvh - 60px);
     overflow-y: auto;
     overflow-x: hidden;
     padding: 8px 12px;
@@ -1060,4 +877,5 @@ img {
   .nav-links a {
     padding: 8px 10px;
   }
+
 }
